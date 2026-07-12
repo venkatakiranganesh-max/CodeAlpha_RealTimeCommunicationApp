@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Communication App</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="homePage" class="container">
+
+    <h1>Real-Time Communication App</h1>
+
+    <p>Secure Video Meetings, Screen Sharing & Collaboration</p>
+
+    <input type="text" id="username" placeholder="Enter Your Name">
+
+    <br><br>
+
+<input type="text" id="roomId" placeholder="Enter Room ID">
+
+    <br><br>
+
+    <button id="joinBtn">Join Meeting</button>
+
+</div>
+
+<div id="meetingRoom" style="display:none;">
+
+    <h2>Meeting Room</h2>
+
+    <div class="video-container">
+
+    <div>
+        <h3>Your Camera</h3>
+        <video id="localVideo" autoplay playsinline muted
+        style="width:400px;border:3px solid #2196F3;border-radius:10px;"></video>
+    </div>
+
+    <div>
+        <h3>Remote User</h3>
+        <video id="remoteVideo" autoplay playsinline
+        style="width:400px;border:3px solid #4CAF50;border-radius:10px;"></video>
+    </div>
+
+</div>
+    <br><br>
+
+    <button id="micBtn">🎤 Mute</button>
+
+    <button id="cameraBtn">📹 Camera Off</button>
+
+    <button id="screenBtn">🖥 Screen Share</button>
+
+    <button id="fileBtn">📁 File Share</button>
+
+<br><br>
+
+<input type="file" id="fileInput" style="display:none;">
+<div id="receivedFiles"></div>
+
+    <button id="whiteboardBtn">✏ Whiteboard</button>
+
+<br><br>
+
+<canvas id="whiteboard" width="700" height="400"
+style="display:none;border:2px solid white;background:white;">
+</canvas>
+<h3>💬 Chat</h3>
+
+<div id="chatBox"
+     style="width:400px;height:200px;
+     border:2px solid white;
+     overflow-y:auto;
+     background:white;
+     color:black;
+     padding:10px;">
+</div>
+
+<br>
+
+<input type="text"
+       id="chatInput"
+       placeholder="Type a message...">
+
+<button id="sendBtn">Send</button>
+
+<br><br>
+    <button id="leaveBtn" style="background:red;color:white;">🚪 Leave Meeting</button>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script src="js/webrtc.js"></script>
+<script src="js/fileShare.js"></script>
+<script src="js/whiteboard.js"></script>
+<script src="js/app.js"></script>
+ 
+</body>
+</html>
